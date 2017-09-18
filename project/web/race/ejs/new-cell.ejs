@@ -1,0 +1,39 @@
+<% if(news){ %>
+  <% news.forEach(function(n){ %>
+    <a class="new_cell" href="#" id="<%=n.cmsUrl%>">
+         <div id="new_img">
+           <%if(n.cmsImg!=""){%>
+           <img src="<%=n.cmsImg%>!/sq/150/gifto/true" alt="">
+           <%}else{%>
+              <img src="../image/dyna_default.png!/sq/150/gifto/true" alt="">
+             <%}%>
+           <% if(n.isVideo=='1'){ %>
+           <img id="new_play" src="../image/player.png" alt="">
+           <% }%>
+         </div>
+         <div id="new_detail">
+           <text id="title"><%= n.cmsTitle%></text>
+           <% n.tag.forEach(function(t){%>
+             <%if(name=='all'){%>
+               <% if(t!='赛事前瞻'&&t!='单轮综述'&&t!='五佳球'&&t!='赛事花絮 '&&t!='赛事公示'&&t!='纪律通告'&&t!='推荐'&&t!='赛事花絮'){%>
+               <div id="new_tags" class="down">
+                  <%if(name=='all'){%>
+                   <text style="color:<%=color%>;border:none;padding:0 !important"> <%= t %></text>
+                   <%}else{%>
+                      <text style="color:<%=color%>;border:1px solid <%=color%>"> <%= t %></text>
+                  <%}%>
+               </div>
+               <%}%>
+             <%}else{%>
+               <% if(t!=tag&&t!='推荐'){%>
+               <div id="new_tags" class="down">
+                  <text style="color:<%=color%>;border:1px solid <%=color%>"> <%= t %></text>
+               </div>
+               <%}%>
+             <%}%>
+           <%})%>
+           <text class="down"><%= n.cmsCreateDate %></text>
+         </div>
+    </a>
+  <%});%>
+<%}%>

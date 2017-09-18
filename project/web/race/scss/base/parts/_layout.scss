@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+// 依赖
+// @import "_fn";
+
+// 清除浮动
+.cf{@extend %cf;}
+
+// 通用居中样式
+// eg:
+//  <div class="imgc">
+//  	<div class="imge"><img src="./img/w.png" alt="" /></div>
+//  	<!--[if lt IE 8]><p class="iecp"></p><![endif]-->
+//  </div>
+// 说明：imge和iecp要用块级元素，如img本身可以如果用imge的话，ie6/7会有问题
+// iecp是兼容ie6/7不支付before和after伪类，这路写法只有ie6/7才会有此DOM结点，其它浏览器只是个注释结点
+// 之所以img会有个div来包起来，是因为行内元素设成display:inline;zoom:1;时且imgc父元素设成font:0时元素间还是会有间隙，但是用块元素则无此问题
+// 如果不考虑ie6/7则可直接在img上加上imge这个类，而且不用再用div包起来
+.imge{@extend %imge;}
+.imgc{@extend %imgc;}
+
+// 两端对齐布局样式
+.tj{
+	text-align:justify;text-justify:distribute-all-lines;
+	.b{@extend %ib;vertical-align:top;}
+	&:after,.l{@extend %ib;height:0;overflow:hidden;float:none;line-height:0;padding:0;border:0;}
+	&:after{width:100%;}
+}
+// <div class="tj">
+// 	<div class="b"></div>
+// 	<div class="b"></div>
+// 	<div class="l"></div>
+// </div>
+// b表示需要两端对齐的盒子
+// l是为了辅助撑开盒子，里面不用写任何内容

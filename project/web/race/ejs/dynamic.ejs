@@ -1,0 +1,73 @@
+<div id="dynamic">
+  <div class="pull-to-refresh-layer"><div class="preloader"></div><div class="pull-to-refresh-arrow"></div></div>
+  <% if(imageList){%>
+    <!-- Slider container -->
+    <div class="page-content" id="headSwiper">
+      <div class="swiper-container dyna_swiper"   >
+        <div class="swiper-wrapper">
+          <% imageList.forEach(function(img){ %>
+          <a class="swiper-slide" id="<%= img.url %>" style="background:url('<%= img.picurl %>'); background-size:100%;"></a>
+        <% }); %>
+        </div>
+        <div class="swiper-pagination dyna_pagination" ></div>
+      </div>
+    </div>
+  <% } %>
+  <% if(news){ %>
+  <div id="news" >
+    <% news.forEach(function(n){ %>
+      <%if(n!=null){%>
+          <a class="new_cell" href="#" id="<%= n.cmsUrl%>">
+               <div id="new_img">
+                  <%if(n.cmsImg!=null&&n.cmsImg!=""){%>
+                 <img src="<%=n.cmsImg%>!/sq/150/gifto/true" alt="">
+                 <%}else{%>
+                  <img src="../image/dyna_default.png" alt="">
+                  <%}%>
+                 <% if(n.isVideo=='1'){ %>
+                 <img id="new_play" src="../image/player.png" alt="">
+                 <% }%>
+               </div>
+               <div id="new_detail">
+                 <text id="title"><%= n.cmsTitle%></text>
+                 <% n.tag.forEach(function(t){%>
+                   <%if(name=='all'){%>
+                     <% if(t!='赛事前瞻'&&t!='单轮综述'&&t!='五佳球'&&t!='赛事花絮 '&&t!='赛事公示'&&t!='纪律通告'&&t!='推荐'&&t!='赛事花絮'){%>
+                     <div id="new_tags" class="down">
+                       <%if(name=='all'){%>
+                        <text style="color:<%=color%>;border:none;padding:0 !important"> <%= t %></text>
+                        <%}else{%>
+                           <text style="color:<%=color%>;border:1px solid <%=color%>"> <%= t %></text>
+                       <%}%>
+                     </div>
+                     <%}%>
+                   <%}else{%>
+                     <% if(t!=tag&&t!='推荐'){%>
+                     <div id="new_tags" class="down">
+                        <text style="color:<%=color%>;border:1px solid <%=color%>"> <%= t %></text>
+                     </div>
+                     <%}%>
+                   <%}%>
+                 <%})%>
+                 <text class="down"><%= n.cmsCreateDate %></text>
+               </div>
+          </a>
+        <%}%>
+    <%});%>
+  </div>
+  <%}%>
+  <%if(news!=null){%>
+  <%if(news.length>=9){%>
+    <div class="d_warn" style="padding:8px 0;" > <div class="ptr" ></div> </div>
+    <img id="page_bottom" style="display:none" src="../image/bottom.png" alt="">
+    <%}else if(news.length>0){%>
+      <img id="page_bottom"  src="../image/bottom.png" alt="">
+    <%}else{%>
+      <img class="noDynamic" src="../image/dynaEmpty.png" alt="">
+      <text id="bottom_text">暂时没有任何动态</text>
+  <%}%>
+  <%}else{%>
+      <img class="noDynamic" src="../image/dynaEmpty.png" alt="">
+      <text id="bottom_text">暂时没有任何动态</text>
+  <%}%>
+</div>

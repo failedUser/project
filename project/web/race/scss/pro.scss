@@ -1,0 +1,45 @@
+$m_blue:rgb(0,71,157);
+$m_pink:rgb(241,50,133);
+$m_green:rgb(82,168,35);
+$m_purple:rgb(96,26,134);
+$m_red:rgb(243,58,59);
+$score_color:rgb(120,120,120);
+$border_color:rgba(200,200,200,.4);
+
+// #process{
+#home-container{
+  font-size: 12px;
+
+  .p_race{
+    background: #fff;
+    border-bottom: 1px solid $border_color;
+    padding: 10px;
+    overflow:hidden;
+    a{  color: $m_blue;}
+    span{margin-left: 7px}
+    text{
+      display: block;
+      &#r_date{
+        color: $score_color;
+        margin-top: 6px;
+      }
+      &#r_status_gray{
+        color:$score_color
+      }
+      &#r_status{
+        color: rgb(240,60,65)
+      }
+    }
+    img{
+      width: 75px;
+      float: left;
+      margin-top: 10px;
+    }
+    .p_info{
+      margin-left:85px;
+      box-sizing: border-box;
+      padding-top: 10px;
+    }
+
+  }
+}

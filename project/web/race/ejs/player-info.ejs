@@ -1,0 +1,53 @@
+<div id="page-playerInfo">
+  <div class="player_info">
+    <div class="playerImg">
+      <img src="<%= info.logo?info.logo:'../image/player_logo.png'%>" alt="">
+    </div>
+    <div class='playerInfo'>
+      <div class="p_cell">
+        <div class="cell-item">
+          <text><%= info.name %></text>
+          <img src="<%= info.teamleader==1?'../image/player/captain.png':'#' %>" alt="">
+        </div>
+        <div class="cell-item">
+          <!-- <img  class="right" src="../image/logo.png" alt="">
+          <text class="right">总经理</text> -->
+        </div>
+
+      </div>
+      <div class="p_cell">
+        <div class="cell-item">
+          <img class="teamLogoBorder teamlogo" src="<%= info.teamLogo?info.teamLogo:'../image/logo-default.png' %>" alt="">
+          <text><%= info.teamName%></text>
+        </div>
+        <div class="cell-item">
+          <img  class="right" src="../image/player/play_2.png" alt="">
+          <text class="right"><%= info.backid %>号</text>
+        </div>
+      </div>
+      <div class="p_cell">
+        <text><%= info.birthday?info.birthday:'--'%></text>
+        <text><%= info.height?info.height:'--'%>cm</text>
+        <text><%= info.weight?info.weight:'--'%>kg</text>
+      </div>
+    </div>
+  </div>
+  <div class="race_info">
+    <div class="r_head">
+      <text >赛事数据</text>
+      <text>(数据截止:<%= info.date%>)</text>
+    </div>
+    <div class="boxList">
+      <div class="info-box" style="background:rgb(253,130,48)"><text><%= info.joined?info.joined:'0' %></text><text>出场</text></div>
+      <div class="info-box" style="background:rgb(64,205,203)"><text><%= info.goal0?info.goal0:'0' %></text><text>进球</text></div>
+      <div class="info-box" style="background:rgb(127,83,227)"><text><%= info.nums?info.nums:'0' %></text><text>助攻</text></div>
+      <div class="info-box" style="background:rgb(242,67,70)"><text><%= info.goal3?info.goal3:'0' %></text><text>红牌</text></div>
+      <div class="info-box" style="background:rgb(254,205,0)"><text><%= info.goal4?info.goal4:'0' %></text><text>黄牌</text></div>
+      <div class="info-box" style="background:rgb(0,178,255)"><text><%= info.rq?info.rq:'0' %>k</text><text>人气</text></div>
+      <!-- <div class="info-box" style="background:rgb(108,190,141);"><text>4</text><text class="noLetter">打满全场</text></div>
+      <div class="info-box" style="background:rgb(26,94,179);letter-spacing:0"><text >666'</text><text class="noLetter">出场时间</text></div>
+      <div class="info-box" style="background:rgb(231,83,142);letter-spacing:0"><text>10</text><text class="noLetter">MVP</text></div> -->
+    </div>
+  </div>
+    <text class="share">炫耀一下</text>
+</div>

@@ -1,0 +1,192 @@
+<div id="page-rank">
+  <%var tabNumb =0%>
+  <%if(isout>0){ %>
+    <% tabNumb++ %>
+      <div id="knockout" style="padding: 0 ;display:<%= isout==1?'block':'none' %> " class="out-page">
+        <div class="chart" id="OrganiseChart1"></div>
+      </div>
+  <%}%>
+  <%if(point[0]){%>
+      <% tabNumb++ %>
+        <div id="out-integrate" class="out-page" >
+        <%if(point[0].groupList){%>
+          <% point[0].groupList.forEach(function(p){%>
+           <div id="p_title"> <%=p.groupno %>组</div>
+           <div class="th">
+             <text id="id">排名</text>
+             <text id="name">队伍</text>
+             <text id="score">积分</text>
+             <text>失</text>
+             <text>进</text>
+             <text>负</text>
+             <text>平</text>
+             <text>胜</text>
+             <text>赛</text>
+           </div>
+           <%var index = 1%>
+           <% point[0].list.forEach(function(a){%>
+             <%if(a.groupno == p.groupno){%>
+                   <div class="th" style="color:<%= index<=number?'rgb(240,40,41)':'black' %>" >
+                   <text id="id" ><%=index%></text>
+                    <%index++%>
+                   <%if(a.teamLogo&&a.teamLogo!='/images/team_logo.png'){%>
+                   <img src="<%=a.teamLogo%>" alt="">
+                   <%}else{%>
+                       <img src="../image/teamlogo_default.png" alt="">
+                   <%}%>
+                   <text id="name"><%=a.teamName%></text>
+                   <text id="score"><%=a.score%></text>
+                   <text><%=a.lossball%></text>
+                   <text><%=a.goalball%></text>
+                   <text><%=a.loss%></text>
+                   <text><%=a.balance%></text>
+                   <text><%=a.wins%></text>
+                   <text><%=a.loss+a.balance+a.wins %></text>
+                 </div>
+              <%}%>
+           <%})%>
+         <%})%>
+      <%}%>
+     </div>
+    <%}%>
+
+
+    <%if(point[1]){%>
+      <% tabNumb++ %>
+      <%var slist = point[1].list,sindex = 1 %>
+    <div id="out-shoes" style="display:none" class="out-page">
+      <div id=sc_th>
+        <text id="id">排名</text>
+        <text id="name" class='th_name'>姓名</text>
+
+        <text id="team">球队</text>
+        <text id="" class="th_scroing">进球(含点球)</text>
+      </div>
+      <% slist.forEach(function(s){%>
+              <div id=sc_th style="color:<%= sindex<=3?'rgb(240,40,41)':'#000'%>">
+              <text id="id"><%=sindex%></text>
+              <%sindex++%>
+              <%if(s.logo&&s.logo!='/images/player_logo.png'){%>
+              <img  src="<%=s.logo%>" alt="">
+              <%}else{%>
+              <img  src="../image/player_logo.png" alt="">
+              <%}%>
+              <text id="name"><%=s.userName%></text>
+              <%if(s.teamLogo&&s.teamLogo!="/images/team_logo.png"){%>
+                  <img src="<%=s.teamLogo%>" alt="">
+              <%}else{%>
+                  <img src="../image/teamlogo_default.png" alt="">
+              <%}%>
+                <text id="team"><%=s.teamName%></text>
+              <text id="numb"><%=s.goal0%>(<%=s.goal2%>)</text>
+            </div>
+        <%})%>
+      </div>
+      <%}%>
+
+
+
+    <%if(point[2]){%>
+      <% tabNumb++ %>
+      <%var alist = point[2].list %>
+      <div id="out-assists"  style="display:none" class="out-page">
+      <div id=sc_th>
+        <text id="id" >排名</text>
+        <text id="name" class='th_name'>姓名</text>
+
+        <text id="team">球队</text>
+        <text id="numb">助攻数</text>
+      </div>
+      <%var aindex = 1%>
+      <% alist.forEach(function(s){%>
+              <div id=sc_th style="color:<%= aindex<=3?'rgb(240,40,41)':'#000'%>">
+              <text id="id"><%=aindex%></text>
+              <%aindex++%>
+              <%if(s.logo&&s.logo!='/images/player_logo.png'){%>
+              <img  src="<%=s.logo%>" alt="">
+              <%}else{%>
+              <img  src="../image/player_logo.png" alt="">
+              <%}%>
+              <text id="name"><%=s.userName%></text>
+              <%if(s.teamLogo&&s.teamLogo!='/images/team_logo.png'){%>
+              <img src="<%=s.teamLogo%>" alt="">
+              <%}else{%>
+                  <img src="../image/teamlogo_default.png" alt="">
+              <%}%>
+              <text id="team"><%=s.teamName%></text>
+              <text id="numb"><%=s.nums%></text>
+            </div>
+        <%})%>
+      </div>
+    <%}%>
+
+    <%if(point[3]){%>
+      <% tabNumb++ %>
+      <%var alist = point[3].list %>
+      <div id="out-redCard"  style="display:none" class="out-page">
+      <div id=sc_th>
+        <text id="id" >排名</text>
+        <text id="name" class='th_name'>姓名</text>
+        <text id="team">球队</text>
+        <text id="numb">黄牌</text>
+        <text id="numb">红牌</text>
+      </div>
+      <%var rindex = 1%>
+      <% alist.forEach(function(s){%>
+              <div id=sc_th style="color:<%= rindex<=3?'rgb(240,40,41)':'#000'%>">
+              <text id="id"><%=rindex%></text>
+              <%rindex++%>
+              <%if(s.logo&&s.logo!='/images/player_logo.png'){%>
+              <img  src="<%=s.logo%>" alt="">
+              <%}else{%>
+              <img  src="../image/player_logo.png" alt="">
+              <%}%>
+              <text id="name"><%=s.userName%></text>
+              <%if(s.teamLogo&&s.teamLogo!='/images/team_logo.png'){%>
+              <img src="<%=s.teamLogo%>" alt="">
+              <%}else{%>
+                  <img src="../image/teamlogo_default.png" alt="">
+              <%}%>
+              <text id="team"><%=s.teamName%></text>
+              <text id="numb"><%=s.goal3%></text>
+              <text id="numb"><%=s.goal4%></text>
+            </div>
+        <%})%>
+      </div>
+    <%}%>
+
+
+    <div class="tabbar">
+      <%if(point[0]){%>
+        <div  style="width:<%= (100/tabNumb)-1%>%" class="tab" name = 'isClick'>
+            <div class="tabimg integrate integrate_click" id="integrate"></div>
+            <text  class="tabtext clickText">积分</text>
+        </div>
+      <%}%>
+      <%if(isout>0){%>
+        <div style="width:<%= (100/tabNumb)-1%>%"  class="tab" >
+            <div class="tabimg tree" id="tree"></div>
+            <text class="tabtext" >淘汰赛</text>
+        </div>
+      <%}%>
+      <%if(point[1].list.length>0){%>
+        <div  style="width:<%= (100/tabNumb)-1%>%" class="tab">
+            <div class="tabimg shoes" id="shoes"></div>
+            <text class="tabtext ">射手榜</text>
+        </div>
+      <%}%>
+      <%if(point[2].list.length>0){%>
+          <div  style="width:<%= (100/tabNumb)-1%>%" class="tab">
+              <div class="tabimg assists" id="assists"></div>
+              <text class="tabtext">助攻榜</text>
+          </div>
+        <%}%>
+      <%if(point[3].list.length>0){%>
+          <div  style="width:<%= (100/tabNumb)-1%>%" class="tab">
+            <div class="tabimg redCard" id="redCard"></div>
+            <text class="tabtext ">红黄牌</text>
+          </div>
+      <%}%>
+    </div>
+  </div>
+</div>

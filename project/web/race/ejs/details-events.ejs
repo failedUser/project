@@ -1,0 +1,81 @@
+<% var tyleList = ['进球','乌龙球','点球','红牌','黄牌','换上','换下'] %>
+<% var timeList = ['','上半','下半','上半+','下半+'] %>
+<% var time=-1 %>
+<% if(events.length>0){ %>
+  <div id="nav">
+    <div id="line" style="background:<%=color%>"></div>
+    <text style="color:<%=color%>" >比赛事件</text>
+    <div class='navBtn isHide isShow' name = 'events'></div>
+  </div>
+  <div id='events'>
+    <% events.forEach(function(e,index){ %>
+      <% if(~~e.match_time_type != time){ %>
+        <% time = e.match_time_type %>
+        <div class="events-cell">
+          <div class="events-box">
+            <text id="event-middle"><%= timeList[~~time] %></text>
+          </div>
+          <div class="events-line"></div>
+        </div>
+      <% } %>
+      <div class="events-cell">
+        <div class="events-box">
+          <div class="events-info textRight" >
+            <%if(e.zORk == '1'){%>
+              <%if(~~e.itype < 5){%>
+                <p><%= e.backid %>号</p>
+                <p style="margin-right:15px;margin-left:5px;"><%= e.playerName %></p>
+                <p><%= tyleList[~~e.itype]%></p>
+                <img src="../image/events/event_<%= e.itype %>.png" alt="">
+              <%}else{%>
+                <div class="change">
+                  <p><%= e.itype=='5'?e.hBackid:e.backid %>号</p>
+                  <p style="margin-right:15px;margin-left:5px;"><%= e.itype=='5'?e.hPlayerName:e.playerName %></p>
+                  <p>换下</p>
+                  <img src="../image/events/down.png" alt="">
+                </div>
+                <div class='change'>
+                  <p><%= e.itype=='5'?e.backid:e.hBackid %>号</p>
+                  <p style="margin-right:15px;margin-left:5px;"><%= e.itype=='5'?e.playerName:e.hPlayerName %></p>
+                  <p>换上</p>
+                  <img src="../image/events/up.png" alt="">
+                </div>
+              <%}%>
+            <%}%>
+            <%if(e.zORk == '0'){%>
+              <text class="error">数据出错</text>
+            <%}%>
+          </div>
+          <text id="event-middle"><%= e.gtimemin %> '</text>
+          <div class="events-info textLeft" >
+            <%if(e.zORk == '2'){%>
+              <%if(~~e.itype < 5){%>
+                <img src="../image/events/event_<%= e.itype %>.png" alt="">
+                <p><%= tyleList[~~e.itype]%></p>
+                <p style="margin-right:15px;margin-left:5px;"><%= e.playerName %></p>
+                <p><%= e.backid %>号</p>
+              <%}else{%>
+                <div class="change">
+                  <img src="../image/events/down.png" alt="">
+                  <p>换下</p>
+                  <p style="margin-right:15px;margin-left:5px;"><%= e.itype=='5'?e.hPlayerName:e.playerName %></p>
+                  <p><%= e.itype=='5'?e.hBackid:e.backid %>号</p>
+                </div>
+                <div class='change'>
+                  <img src="../image/events/up.png" alt="">
+                  <p>换上</p>
+                  <p style="margin-right:15px;margin-left:5px;"><%= e.itype=='5'?e.playerName:e.hPlayerName %></p>
+                  <p><%= e.itype=='5'?e.backid:e.hBackid %>号</p>
+
+                </div>
+              <%}%>
+            <%}%>
+          </div>
+        </div>
+        <%if(~~index < ~~events.length-1){%>
+          <div class="events-line"></div>
+        <%}%>
+      </div>
+    <% }) %>
+  </div>
+<% } %>

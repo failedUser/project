@@ -1,0 +1,85 @@
+//Theme
+$theme_blue:rgb(0,71,157);
+$theme_pink:rgb(241,50,133);
+$theme_green:rgb(82,168,35);
+$theme_purple:rgb(96,26,134);
+ /* font */
+//color
+$fc_gray:  #787878;//  辅助文本- 暗提示-文字信息-文本
+$fc_black: #323232;
+$fc_blue:  #033893;
+$fc_blue_light: #2dafff;
+$fc_red:   #f03c41;
+$fc_orange:#ff9641;
+$fc_white: #ffffff;
+//size
+$fs_25: 25px;
+$fs_17: 17px;
+$fs_14: 14px;
+$fs_12: 12px;
+$fs_10: 10px;
+$fs_8:  8px;
+/* common  */
+$page_bg:#f0f0f0;
+$parting-line: #dcdcdc;
+$_disabled: #969696;
+/* nav*/
+$nav_bg: #033893;
+$nav_margin_left:15px;
+$nav_height:44px;
+$nav_title:17px;
+$nav_icon_user:30px;
+$nav_icon_share:21px;
+$nav_arrow_width:10px;
+$nav_arrow_height:6px;
+/* tabbar */
+$tab_height:49px;
+$tab_top:5px;
+$tab_bottom:5px;
+$tab_itemImg:29px;
+$tab_fs:10px;
+/* box  */
+$box_bg: #ffffff;
+$box_border:#c8c8c8;
+$score_color:rgb(120,120,120);
+$border_color:rgba(200,200,200,.7);
+/* control */
+
+// layout
+@mixin _absolute(
+$top,
+$right:$top,
+$bottom:$top,
+$left:$top){
+  position: absolute;
+  top: $top;
+  right:$right;
+  bottom:$bottom;
+  left: $left;
+}
+@mixin _fixed(
+$top,
+$right:$top,
+$bottom:$top,
+$left:$top){
+  position: fixed;
+  top: $top;
+  right:$right;
+  bottom:$bottom;
+  left: $left;
+}
+@mixin abs_vertical_center($height){
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: $height;
+  margin: 0 auto;
+  margin-top:$height/2;
+  z-index: 100;
+}
+
+@mixin dvm{
+  display: inline-block;
+  vertical-align: middle;
+}

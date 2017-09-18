@@ -1,0 +1,192 @@
+$m_blue:rgb(0,71,157);
+$m_pink:rgb(241,50,133);
+$m_green:rgb(82,168,35);
+$m_purple:rgb(96,26,134);
+$m_red:rgb(243,58,59);
+$score_color:rgb(120,120,120);
+$border_color:rgba(200,200,200,.4);
+// #schedule{
+#page-schedule{
+  position: absolute;top:44px;bottom: 0;left: 0;right: 0;overflow: hidden;padding:0;margin: 0;
+#scheContent{
+      position: relative;
+      height: 100%;width: 100%;
+      background: #f0f0f0;
+      overflow-y: auto;margin-top: -15px;padding-bottom: 44px
+}
+  .s_list{
+      margin-top: 14px;
+    .s_rtid{
+      display: block;
+      height: 30px;
+      width: 100%;
+      text-align: center;
+      line-height: 30px;
+      font-size: 11px;
+      color: $score_color;
+    }
+    .s_date{
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      margin-top: 5px;
+    }
+    .s_race{
+      position: relative;
+      display: block;
+      background: #fff;
+      padding: 10px 0;
+      #myRace{
+        position: absolute;top: 0;left: 0;
+        width: 28px;
+      }
+      text{
+        font-size: 12px;
+        color: $m_blue;
+        overflow: hidden;
+        white-space: nowrap;
+        &.team_name{
+          width: 26.5%;
+          min-width: 75px;
+          color: #000 !important;
+          font-size: 14px;
+          text-overflow: ellipsis;
+        }
+        &#mteamName{
+          text-align: right;
+        }
+        &#subteamName{
+          text-align: left;
+        }
+        &#r_date{
+          color: $score_color;
+          font-size: 10px;
+        }
+        &#m_name{
+          padding: 11px 0  19px 0;
+          font-size: 13px;
+          span{margin: 0 5px;}
+        }
+        &#sc_big{
+          font-size: 20px;
+          letter-spacing: 5px;
+        }
+        &#sc_small{
+          font-size: 11px;
+          letter-spacing: 2px;
+          margin-right: 4px;
+        }
+        &#vs{
+          font-size: 15px;
+          color: #000;
+        }
+      }
+      #r_mid{
+        img{
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          border: 1px solid #c8c8c8;
+        }
+        .m_score{
+            width: 90px;
+        }
+      }
+    }
+}
+#knockout{
+  position: absolute; top: 42px;bottom: 0;left: 0;right: 0;
+  overflow: auto;background: #fff;
+  #OrganiseChart2{
+    display: block; height: 100%;
+
+  }
+}
+}
+.block-center{
+  display: block;
+  text-align: center;
+}
+.inline{
+    display: inline-block;
+    vertical-align: middle;
+}
+#page_bottom{
+  width: 100%;
+}
+.preloader{
+  background-image:url(../image/football.png);
+}
+.s_warn{
+  font-size:12px;
+  display: block;
+  text-align: center;
+  color:#c8c8c8;
+}
+.pull-to-refresh-arrow{
+  top: 30% !important;
+}
+.refresh-text{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 10px;
+  text-align: center;
+  color:rgb(120,120,120);
+}
+#choseRacetype{
+  position: fixed;top: 44;left: 0;right: 0;z-index:10000;
+  display: block;height: 42px;
+  background: #fff;
+  .title{
+    position: relative;
+    display:block;height: 42px;
+    text-align: center;font-size: 14px;
+    text,img{display: inline-block;vertical-align: middle;line-height: 42px;}
+    img{width: 15px;margin-top: -2px;}
+  }
+  .choseContent{
+    display: none;
+    height: 1000px;
+    background: rgba(0,0,0,.8);
+
+  }
+  .choseList{
+    font-size: 15px;background: #fff;
+    .racetype{
+      display: block;height: 64px;
+      text-align: center;
+      border-bottom: 1px solid $border_color;
+    }
+    .choseBtn{
+      display: inline-block;width: 40%;height: 40px;
+      border: 1px solid #000;border-radius: 3px;
+      line-height: 39px;margin: 10px;
+    }
+    .choseBtn_click{
+      color: #fff;
+      background: #083893;border: none;
+    }
+  }
+  .typeList{
+    background: #fff;
+    .tl_item{
+      display: block;width: 100%;
+      font-size: 14px;  text-align: center;
+      border-bottom: 1px solid $border_color;
+      padding:10px 15px;overflow: hidden;
+      text,img{
+        display: inline-block;vertical-align: middle;
+      }
+      img{float: right;height: 18px;}
+    }
+  }
+}
+.shadow{
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+.vs{font-size: 16px !important;color: #000 !important;letter-spacing: 0px !important;}
+.race_line{
+  position: absolute;bottom: 0;left: 24px;right: 0;
+  height: 1px;
+  background: #f0f0f0;}

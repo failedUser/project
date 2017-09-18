@@ -1,0 +1,50 @@
+<div class="matchBox" id="<%= score.timeId%>-<%=score.ridrace%>">
+   <div class="box_top">
+       <div class="team"  id="winner">
+         <%if(score.zTeamLogo){%>
+           <img src="<%= score.zTeamLogo %>" alt="">
+         <%}else{%>
+           <img src="../image/teamlogo_default.png" alt="">
+         <%}%>
+           <text><%=score.zTeamName %></text>
+       </div>
+       <div class="box_score">
+         <text><%= score.showStartDate %></text>
+         <text ><%= score.courtName %></text>
+           <%if(score.scorem==-1){%>
+             <text class="h_VS">vs</text>
+           <%}else{%>
+             <% if(score.tieScore){%>
+               <text id="current_score" style="color:<%=color%>"><%= score.tieScore%></text>
+               <text id="end_score" style="color:<%=color%>">(<%=score.scorem%>:<%=score.scores%>)</text>
+             <% }else{%>
+               <text id="current_score" style="color:<%=color%>"><%= score.scorem %>:<%= score.scores %></text>
+             <%}%>
+           <%}%>
+       </div>
+       <div class="team"  id="loser">
+         <%if(score.kTeamLogo){%>
+           <img src="<%= score.kTeamLogo %>" alt="">
+         <%}else{%>
+           <img src="../image/teamlogo_default.png" alt="">
+         <%}%>
+           <text><%=score.kTeamName %></text>
+       </div>
+   </div>
+   <div class="box_bottom">
+     <%if(score.system_type=='3'||score.system_type=='4'){%>
+       <text style="color:<%=color%>"><%=score.round %></text>
+     <%}else{%>
+       <text style="color:<%=color%>"><%= racetype[~~score.system_type-1]%> 第<%=score.rtid %>轮</text>
+     <%}%>
+         <%if(score.liveUrl){%>
+           <a href="<%=score.liveUrl%>" ><img id="watch" src="../image/<%= imgid%>/main/watch.png" alt=""></a>
+         <%}else{%>
+         <%if(score.essenceUrl){%><a href="javascript:void(0);"><img src="../image/flash.png" alt=""></a><%}%>
+         <%if(score.picUrl=='1'){%><a href="javascript:void(0);"><img src="../image/article.png" alt=""></a><%}%>
+         <%if(score.imgCount=='1'){%><a href="javascript:void(0);"><img src="../image/camare.png" alt=""></a><%}%>
+         <%if(score.resultCount=='1'){%><a href="javascript:void(0);"><img src="../image/events.png" alt=""></a><%}%>
+       <%}%>
+
+   </div>
+</div>

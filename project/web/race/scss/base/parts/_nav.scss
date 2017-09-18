@@ -1,0 +1,28 @@
+.navbar {
+  background: #1d1c22; color: #FFF; font-size: 14px;
+  .navbar-inner { padding: 0 20px 0 15px;}
+  a {
+    color: #FFF;
+    &.login { color: #FFF;}
+    &#nav-btn-menu {
+      i { margin-left: 5px; @include bg('/common/images/icons/icon-plus.png',14px); @include ib;}
+    }
+  }
+  .nav-list {
+    position: absolute; background: #1d1c22; width: 120px; top: 52px; right: -15px; font-size: 16px; display: none;
+    li {
+      height: 44px; line-height: 44px; padding: 0 15px; text-align: center; border-bottom: 1px solid #18181e;
+      a { height: 100%; display: block; width: 100%;}
+      &.cur {
+        background: #18181e; color: $sBlue; display: none;
+        a { color: #2d2d34;}
+      }
+    }
+    &.show { display: block;}
+    &:before { content:""; @include size(0); border: 8px solid transparent; border-bottom-color: #1d1c22; position: absolute; top: -15px; right: 15px;}
+  }
+  #nav-user-info {
+    .user-head { @include ib; margin-right: 5px; @include size(15px); border-radius: 100%;}
+  }
+  &:after { display: none;}
+}

@@ -1,0 +1,202 @@
+<div id="page-teamInfo">
+  <%var poiList = ['GK','DF','DF','DF','DF','MF','MF','MF','MF','FW','FW','FW','FW','FW','自','无']%>
+  <div class="info-page" id="page"  style="display:<%tab!=0?'none':'block' %>">
+    <div id="head">
+      <div id="teamlogo">
+          <img src="<%= teamInfo.team.logo  %>" alt="">
+          <p><%= teamInfo.team.name  %></p>
+          <p id="slogan">无足球，不兄弟</p>
+          <div class='introBtn' id="teamIntro">
+            <p>球队介绍</p>
+            <img src="../image/arrow-right.png" alt="">
+          </div>
+      </div>
+      <div id="head-info" style="background:url(<%= teamInfo.team.name  %>) no-repeat center; background-size:100%;">
+        <div id="back"></div>
+      </div>
+
+    </div>
+    <div id="teamInfo">
+        <div id = "info-item">
+          <p><%= teamInfo.count  %></p>
+          <p>球队人数</p>
+        </div>
+        <div id = "info-item">
+          <p><%= teamInfo.ageAvg?teamInfo.ageAvg:'--'  %></p>
+          <p>平均年龄</p>
+        </div>
+        <div id = "info-item">
+          <p><%= teamInfo.heightAvg?teamInfo.heightAvg:'--'  %></p>
+          <p>平均身高</p>
+        </div>
+    </div>
+    <!-- <div id="playerTab">
+      <p id="ptab1" class="tabClick">队员(15)</p>
+      <p id="ptab2">官员(6)</p>
+    </div> -->
+    <div class="playerList" id="player">
+       <%if(players.length>0){ %>
+        <%players.forEach(function(p){ %>
+          <div class="cell">
+             <%if(p.teamleader=='1'){%>
+               <img id="captain" src="../image/player/captain.png" alt="">
+             <%}%>
+             <img id="logo" src="<%= p.logo?p.lofgo:'../image/player_logo.png'  %>" alt="">
+             <p><%= p.name  %></p>
+             <div id="playerNum">
+               <!-- <img src="../image/player/play_<%= p.positions %>.png" alt=""> -->
+               <p class="playPosition position_<%= p.positions %>"><%= poiList[p.positions-1]%></p>
+               <p><%= p.backid  %>号</p>
+             </div>
+             <p id="pInfo">
+                <%= p.age?p.age:'--'  %>岁
+                <%= p.height?p.age:'--'  %>cm
+                <%= p.weight?p.age:'--'  %>kg
+             </p>
+          </div>
+        <%}) %>
+      <%} %>
+    </div>
+    <div class="playerList" id="official">
+       <text>官员</text>
+    </div>
+
+  </div>
+  <div class="record-page"  id="page"  style="display:<%= tab!=1?'none':'block'  %>">
+    <div id="teamRecordInfo">
+      <div class="teamLogo">
+          <img src="<%= record.logo  %>" alt="">
+          <p><%= record.name  %></p>
+      </div>
+      <div class="rTeamInfo">
+          <div class="tInfo-side tinfo-score">
+            <div>
+              <p><%= record.goalball  %></p><p>进</p>
+            </div>
+            <div>
+              <p><%= record.lossball  %></p><p>失</p>
+            </div>
+            <div>
+              <p><%= record.winspure  %></p><p>净胜</p>
+            </div>
+            <div>
+              <p><%= record.score  %></p><p>积分</p>
+            </div>
+          </div>
+          <div class="tInfo-side">
+            <div class="peiChart">
+              <div class="pie" id="wins"></div>
+              <text>胜</text>
+            </div>
+            <div class="peiChart">
+              <div class="pie" id="blance"></div>
+              <text>平</text>
+            </div>
+            <div class="peiChart">
+              <div class="pie" id="loss"></div>
+              <text>负</text>
+            </div>
+          </div>
+      </div>
+
+    </div>
+    <div id="recordList">
+      <% if(times){  %>
+      <div class="box" id="newScore">
+             <div class="slideBox" >
+               <% times.forEach(function(score){  %>
+              <div class="matchBox" id="<%= score.timeId  %>-<%= score.ridrace  %>">
+                  <div class="box_top">
+                      <div class="team"  id="winner">
+                        <%if(score.zTeamLogo){ %>
+                          <img src="<%= score.zTeamLogo  %>" alt="">
+                        <%}else{ %>
+                          <img src="../image/teamlogo_default.png" alt="">
+                        <%} %>
+                          <text><%= score.zTeamName  %></text>
+                      </div>
+                      <div class="box_score">
+                        <text><%= score.showStartDate  %></text>
+                        <text ><%= score.courtName  %></text>
+                          <%if(score.scorem==-1){ %>
+                            <text class="h_VS">vs</text>
+                          <%}else{ %>
+                            <% if(score.tieScore){ %>
+                              <text id="current_score" style="color:<%= color %>"><%= score.tieScore %></text>
+                              <text id="end_score" style="color:<%= color %>">(<%= score.scorem %>:<%= score.scores %>)</text>
+                            <% }else{ %>
+                              <text id="current_score" style="color:<%= color %>"><%= score.scorem  %>:<%= score.scores  %></text>
+                            <%} %>
+                          <%} %>
+                      </div>
+                      <div class="team"  id="loser">
+                        <%if(score.kTeamLogo){ %>
+                          <img src="<%= score.kTeamLogo  %>" alt="">
+                        <%}else{ %>
+                          <img src="../image/teamlogo_default.png" alt="">
+                        <%} %>
+                          <text><%= score.kTeamName  %></text>
+                      </div>
+                  </div>
+                  <div class="box_bottom">
+                    <%if(score.system_type=='3'||score.system_type=='4'){ %>
+                      <text style="color:<%= color %>"><%= score.round  %></text>
+                    <%}else{ %>
+                      <text style="color:<%= color %>"><%= racetype[~~score.system_type-1] %> 第<%= score.rtid  %>轮</text>
+                    <%} %>
+                        <%if(score.liveUrl){ %>
+                          <a href="<%= score.liveUrl %>" ><img id="watch" src="../image/<%= imgid %>/main/watch.png" alt=""></a>
+                        <%}else{ %>
+                        <%if(score.essenceUrl){ %><a href="javascript:void(0);"><img src="../image/flash.png" alt=""></a><%} %>
+                        <%if(score.picUrl=='1'){ %><a href="javascript:void(0);"><img src="../image/article.png" alt=""></a><%} %>
+                        <%if(score.imgCount=='1'){ %><a href="javascript:void(0);"><img src="../image/camare.png" alt=""></a><%} %>
+                        <%if(score.resultCount=='1'){ %><a href="javascript:void(0);"><img src="../image/events.png" alt=""></a><%} %>
+                      <%} %>
+
+                  </div>
+               </div>
+               <% }); %>
+             </div>
+        </div>
+      <% }  %>
+    </div>
+
+  </div>
+  <div class="locker-page" id="page">
+    <div id="head">
+      <div id="teamlogo">
+          <img src="<%= teamInfo.team.logo %>" alt="">
+          <p><%= teamInfo.team.name %></p>
+          <p id="slogan">无足球，不兄弟</p>
+          <div class='introBtn' id="teamIntro">
+            <p>球队介绍</p>
+            <img src="../image/arrow-right.png" alt="">
+          </div>
+      </div>
+      <div id="head-info" style="background:url(<%= teamInfo.team.name %>) no-repeat center; background-size:100%;">
+        <div id="back"></div>
+      </div>
+    </div>s
+
+    <div id="comments"></div>
+  </div>
+  <div class="tabbar">
+    <div id="info" data-index = "0" class="tab">
+        <img  id="unclick" src="../image/<%= imgid %>/info.png" alt="">
+        <img  id="click" src="../image/<%= imgid %>/info_click.png" alt="">
+        <text id="unclick" >阵容</text>
+    </div>
+    <div id="record" data-index = "1" class="tab">
+        <img  id="unclick" src="../image/<%= imgid %>/record.png" alt="">
+        <img  id="click" src="../image/<%= imgid %>/record_click.png" alt="">
+        <text id="unclick">战绩</text>
+    </div>
+    <div id="locker" data-index = "2"  class="tab">
+        <img  id="unclick" src="../image/<%= imgid %>/locker.png" alt="">
+        <img  id="click" src="../image/<%= imgid %>/locker_click.png" alt="">
+        <text id="unclick">更衣室</text>
+    </div>
+
+
+  </div>
+</div>

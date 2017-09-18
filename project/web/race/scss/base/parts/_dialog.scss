@@ -1,0 +1,67 @@
+@charset "utf-8";
+@import "parts/fn";
+
+.up-dialog {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    color: #FFF;
+
+}
+
+/***缩放***/
+.bscale {
+    animation: bscale .3s ease-in-out;
+    -webkit-animation: bscale .3s ease-in-out;
+    -moz-animation: bscale .3s ease-in-out;
+}
+
+/***缩放动画***/
+@keyframes bscale {
+    0% {
+        transform: scale(.5);
+        opacity: 0;
+    }
+    90% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes bscale 
+/*Safari and Chrome*/
+{
+    0% {
+        transform: scale(.5);
+        opacity: 0;
+    }
+    90% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@-moz-keyframes bscale 
+/*firefox*/
+{
+    0% {
+        transform: scale(.5);
+        opacity: 1;
+    }
+    90% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

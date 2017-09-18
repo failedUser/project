@@ -1,0 +1,16 @@
+<div id="teams">
+  <% if(name){%>
+    <img id="t_head" src="../image/<%=imgid%>/teams.png" alt="">
+  <%}%>
+  <%if(teams){%>
+    <%var index = 0;%>
+    <% teams.forEach(function(t){%>
+        <div id="t" class="<%=index%2==0?'unwhiteBack':'whiteBack'%> " data-teamId="<%= t.id%>" >
+          <img src="<%= t.logo%>" alt="">
+          <text><%=t.name%></text>
+          <text id="numb"><%= t.count%>人</text>
+      </div>
+      <%index++%>
+    <%})%>
+  <%}%>
+</div>

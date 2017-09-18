@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import "parts/fn";
+
+.bar {
+    .button-link { color: #FFF;}
+    .button-nav {
+        &.pull-left { margin-left: 0;}
+    }
+}
+.button {
+    &.button-fill { 
+        background: $upBlue;
+        &:active { background: $upBlueAct;}
+        &.button-big { line-height: 2rem;}
+    }
+    &.button-big {
+        height: 2rem; line-height: 2rem; font-size: .75rem;
+    }
+}
+.content-block { margin: .3rem 0; padding: 0 .5rem;}
+
+.header {
+    .header-pic { width: 100%;}
+}
+.header-bar { 
+    background: $upBlue; height: 2.25rem; line-height: 2.25rem;
+    .title { text-align: center; font-size: 0.9rem; line-height: 2.25rem; color: #FFF;}
+}
+.pic-header {
+    background: url(../../common/images/suc-header-bg.jpg?__inline) no-repeat center; background-size: auto 100%; height: 9.375rem;
+    .txt { 
+        text-align: center; color: #FFF; padding-top: 3.2rem;
+        Strong { font-size: 1rem; letter-spacing: .03rem;}
+        p { font-size: 0.7rem; margin: .1rem;}
+    }
+    &~.content { top: 9.375rem;}
+}
+
+.list-block {
+    margin: 0;
+    .ipt-list {background: none;}
+    .item-content { padding-left: .2rem; height: auto; min-height: 0; background: #FFF;}
+}
+.ipt-list {
+    li { 
+        position: relative; margin-top: .2rem; border: 1px solid #FFF;
+        .icon-err { position: absolute; right: .5rem; top: .4rem; display: none; background: url(../images/icon-err.png) no-repeat; background-size: 100%; @include size(1rem);}
+        .get-code { 
+            position: absolute; right: 0; top: 0; @include size(5rem,1.8rem); line-height: 1.8rem; background: $upBlue; border: none; color: #FFF; font-size: 0.7rem; text-align: center;
+            &:active {
+                background-color: $upBlueAct;
+            }
+            &.dis { background-color: #787878;}
+        }
+        &.err {
+            //border-color: #ff0000;
+            .ipt-f { color: #f03c41;}
+            .icon-err { display: block;}
+        }
+        .ipt-f { width: 100%; height: 1.8rem; border: none; background: #FFF; font-size: .7rem;}
+    }
+    .checkbox{
+        margin-top: .25rem; color: #787878; font-size: .6rem; border: none;
+        i { @include ib; background: url(../images/checkbox.png?__inline) no-repeat; background-size: 100%; margin: 0 .25rem 0 .5rem; margin-bottom: .05rem; @include size(.6rem);}
+        a.up-agreement { color: $upBlue; text-decoration: underline;}
+        &.checked {
+            i { background-image: url(../images/checkbox-checked.png?__inline);}
+        }
+    }
+}
+
+.btns { padding: .5rem; width: 100%; font-size: .8rem;}
+.btns-fix { position: fixed; bottom: 1.5rem;}
+.btn { display: block;}
+.btn-primary { margin: auto; @include size(100%,2rem); line-height: 2rem; border-radius: .2rem; background: $upBlue; color: #FFF; text-align: center;}
+.links {
+    a { color: #999; font-size: .7rem;}
+}
+
+//Alert
+.modal-inner { background: #FFF;}
+.modal-button { 
+    background: $upBlue; color: #FFF;
+    &:active,&.active-state { background: $upBlueAct;}
+}
+html:not(.watch-active-state) {
+    .modal-button {
+        &:active { background: $upBlueAct;}
+    }
+}

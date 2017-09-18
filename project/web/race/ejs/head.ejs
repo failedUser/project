@@ -1,0 +1,58 @@
+<div class="top-tab">
+  <% if(name){ %>
+    <div class='tab'>
+      <a href="#" id="item1" class="head-tab">
+        <text>首页</text>
+        <img id="item1"  src="../image/<%= imgid %>/icon-tab.png" alt="">
+      </a>
+
+      <a href="#" id="item2" class="head-tab">
+        <text>赛程</text>
+        <img id="item2" src="../image/<%= imgid %>/icon-tab.png" alt="">
+      </a>
+
+      <!-- <% if(name=='all'){%>
+      <a  href="#" id="item3" class="head-tab">
+        <text>进程</text>
+        <img id="item3" src="../image/<%= imgid %>/icon-tab.png" alt="">
+      </a>
+      <%}%> -->
+      <!-- <% if(name!='all'){%> -->
+      <a href="#" id="item3" class="head-tab">
+        <text>排行</text>
+        <img id="item3" src="../image/<%= imgid %>/icon-tab.png" alt="">
+      </a>
+      <!-- <%}%> -->
+      <a href="#" id="item4" class="head-tab">
+        <text>动态</text>
+        <img id="item3" src="../image/<%= imgid %>/icon-tab.png" alt="">
+      </a>
+
+    </div>
+    <img  id="headback" src="../image/<%= imgid %>/head_back.png" alt="">
+  <% } %>
+</div>
+<!-- <%var urlDomain ='index.html'%>
+<div  class="raceList">
+  <div id="head_back"></div>
+  <div class="list">
+    <div id="adult" class="column">
+      <%var rColor = color;%>
+      <% if(color=='rgb(0,71,157)'){rColor='rgb(0,120,224)'}%>
+      <a id="th" style="background:<%= rColor%>;border-right:1px solid #fff;box-sizing:border-box ">成人组</a>
+        <a  id="yh"  class="external" >樱花杯</text>
+        <a  id="super" class="white-smoke external">超级杯</a>
+        <a  id="ssfl5" class="external" >上超5人制</a>
+        <a  id="ssfl"  class="white-smoke external">上超7人制</a>
+    </div>
+    <div id="teens" class="column">
+        <a  id="th" style="background:<%= rColor%> ">青少组</a>
+        <a  id="sysfl"   class=" white-smoke external" >U9测试赛</a>
+        <a  id="sysflu11" class="external" >上超U11</a>
+        <a  id="sysflu9" class=" white-smoke external" >上超U9</a>
+        <a  id="all"  class="external" style="color:<%= color%> !important">全部赛事</a>
+    </div>
+
+
+  </div> -->
+</div>

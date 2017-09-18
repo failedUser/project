@@ -1,0 +1,48 @@
+<div id="page-schedule">
+    <%if(title){%>
+      <div id="choseRacetype" class="<%=title.now.system_type%>">
+        <div class="title shadow">
+          <%var nowInfo = title.now %>
+            <%if(nowInfo){%>
+              <%var racetype = (nowInfo.system_type=='3'||nowInfo.system_type=='4')?0:1%>
+              <text id="topText" data-select= "0"><%=raceType[nowInfo.system_type-1] %> 全部
+              </text>
+          <%}%>
+          <img src="../image/down.png" alt="">
+        </div>
+        <div class="choseContent" >
+          <div class="choseList">
+            <div class="racetype">
+              <%if(title.existsGroup>0){%>
+                <text id="routineBtn" class="choseBtn <%= racetype==1?'choseBtn_click':''%> ">小组赛</text>
+              <%}%>
+              <%if(title.existsKnockout>0){%>
+                <text id="knockoutBtn"class="choseBtn <%= racetype==0?'choseBtn_click':''%> ">淘汰赛</text>
+              <%}%>
+            </div>
+          </div>
+          <div id="routine" style="display:<%= racetype==1?'':'none'%>" class="typeList">
+            <div class="tl_item" data-id= "-2"><text>本队比赛</text></div>
+            <div class="tl_item"  data-id= "0"><text>全部</text></div>
+            <%if(title.groupList.length>0){%>
+              <%title.groupList.forEach(function(tid){%>
+                <div class="tl_item" data-id="<%= tid.rtid %>"><text>第<%= tid.rtid %>轮</text></div>
+              <%})%>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    <%}%>
+  <div class="group" style="display:<%=(title.now.system_type!='3'&&title.now.system_type!='4')?'block':'none'%>">
+       <div class="page-content pull-to-refresh-content" id="scheContent">
+        <div class="pull-to-refresh-layer"><div class="preloader"></div><div class="pull-to-refresh-arrow"></div><text class="refresh-text">加载历史赛程...</text></div>
+        <div class="s_list "></div>
+      <img id="page_bottom"  class="sche_bottom" src="../image/bottom.png" alt="">
+      <!-- <text class="s_warn">下拉刷新可查看历史赛程</text> -->
+      </div>
+  </div>
+
+  <div id="knockout"  style="display:<%= (title.now.system_type=='3'||title.now.system_type=='4')?'block':'none'%>" >
+    <div class="chart" id="OrganiseChart2"></div>
+  </div>
+</div>

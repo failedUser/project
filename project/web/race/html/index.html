@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>上超联赛</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 加载framework7 css -->
+    <link href="//cdn.bootcss.com/framework7/1.4.2/css/framework7.ios.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/framework7/1.4.2/css/framework7.ios.colors.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//www.upbox.com.cn/public/css/parts/_loading.css">
+    <link rel='stylesheet' href='../css/Treant.css'/>
+    <link rel='stylesheet' href='../css/home.css'/>
+    <link rel='stylesheet' href='../css/style.css' />
+    <link rel='stylesheet' href='../css/sche.css'/>
+    <link rel='stylesheet' href='../css/pro.css'/>
+    <link rel='stylesheet' href='../css/rank.css'/>
+    <link rel='stylesheet' href='../css/detail.css'/>
+    <link rel='stylesheet' href='../css/info.css'/>
+    <link rel='stylesheet' href='../css/player-info.css'/>
+    <link rel="stylesheet" href="/common/css/comments.css">
+   <script type="text/javascript">
+     var _paq = _paq || [];
+     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+     _paq.push(['trackPageView']);
+     _paq.push(['enableLinkTracking']);
+     (function() {
+       var u="//analytics.upbox.com.cn/";
+       _paq.push(['setTrackerUrl', u+'piwik.php']);
+       _paq.push(['setSiteId', '12']);
+       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+       g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+     })();
+   </script>
+  </head>
+  <body>
+
+  <div id="up-loading" class="mask" style="z-index: 20001; height:100%; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255);">
+     <div class="up-loading brotate"><span class="loading-logo"></span>
+       <div class="logo-bg"></div>
+     </div>
+     <p class="loading-txt">请稍候</p>
+   </div>
+    <div class="main-view">
+       <div class="head"></div>
+       <div id="home-container" class='content'></div>
+    </div>
+    <script type="text/javascript" src="../js/raphael.js"></script>
+    <script  type="text/javascript" src="../js/Treant.js"></script>
+    <script type="text/javascript" src="../js/ejs.js"></script>
+    <script type="text/javascript" src= "//cdn.upbox.com.cn/www/public/scripts/vue.min.js">
+
+    </script>
+    <script src="//cdn.bootcss.com/echarts/3.6.2/echarts.min.js"></script>
+    <script type="text/javascript" id="requirejs" data-main="../js/index.js?v=1" data-version="1" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js?v=1"></script>
+  </body>
+</html>

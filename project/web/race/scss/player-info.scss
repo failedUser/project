@@ -1,0 +1,70 @@
+// #player-info{
+#page-playerInfo{
+  .player_info{
+    display: block;height: 130px;
+    background: #fff;overflow: hidden;
+  }
+  .playerImg,
+  .playerInfo{
+    display: block;
+  }
+  .playerImg{float: left;width:130px;height: 130px;
+  img{height: 100%;width: 100%;}}
+  .playerInfo{
+    margin-left: 131px;
+  .p_cell{
+    display: block;height: 33.3%;
+    font-size: 16px;
+    border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;padding: 0 10px;
+    .cell-item{
+      display: inline-block;vertical-align: middle;
+      margin-top: 10px;
+      &:last-child{float: right;}
+    }
+    text,img{display: inline-block;vertical-align: middle;}
+    img{width: 16px;height: 16px;margin-top: 2px;}
+    &:last-child text{display:inline-block;height: 100%;line-height: 42px;margin-right: 10px;}
+  }
+  }
+  .race_info{
+    .r_head{
+      padding: 10px 0;
+      text{
+        display: block;font-size: 17px;
+        text-align: center;
+        &:last-child{font-size: 14px;color: #787878
+        }
+      }
+    }
+    .boxList{
+      .info-box{
+        display: inline-block;width: 33.3%;
+        box-sizing: border-box;border: 3px solid #f0f0f0;
+        text{
+            font-size: 15px;display:block;text-align: center;
+            color: #fff;
+            &:first-child{
+              font-size: 48px;padding: 15px 0;
+            }
+            &:last-child{
+              padding: 8px 0;
+              background: rgba(0,0,0,.2);
+              letter-spacing: 5px;
+            }
+            span{font-size: 34px;margin-left: -13px;}
+        }
+      }
+    }
+  }
+  .share{
+    position: absolute;bottom: 0;left: 0;right: 0;
+    height: 50px;font-size: 14px;
+    background: #083893;color: #fff;
+    line-height: 50px;text-align: center;
+    margin-top: 5px;
+  }
+  .noLetter{letter-spacing:0 !important}
+  .teamLogoBorder{border: 1px solid #c8c8c8;border-radius: 100%;}
+  .teamlogo{height: 20px !important;width: 20px !important;}
+}

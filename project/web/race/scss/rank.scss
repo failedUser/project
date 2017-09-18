@@ -1,0 +1,245 @@
+// #rank-out{
+#page-rank{
+    font-size: 13px;
+}
+#p_title{
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+  background: rgb(240,240,240);
+}
+.th{
+  display: block;
+  overflow: hidden;
+  padding:  0 15px;
+  border-bottom: 1px solid rgba(200,200,200,.5);
+  img,text{
+    padding:10px 0;
+  }
+  img{
+    // display: inline-block;
+    width: 17px;
+    vertical-align: middle;
+  }
+  text{
+    display: inline-block;
+    float: right;
+    width: 24px;
+    text-align: center;
+    vertical-align: middle;
+
+    &#id{
+      float: none;
+      width: 30px;
+    }
+    &#name{
+      float: none;
+      width: auto;
+      text-align: left;
+      max-width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+    }
+
+    &#score{
+      width: 30px;
+    }
+  }
+
+}
+#sc_th{
+    overflow: hidden;
+    border-bottom:1px solid #dcdcdc;
+    padding-left: 5px;
+    img{
+      // display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      vertical-align: middle;
+    }
+    .th_name{
+      width: 85px !important;
+    }
+    .th_scroing{
+      float: right;
+    width: 90px !important;
+    }
+  text{
+    font-size: 13px;
+    display: inline-block;
+    padding:10px 3px;
+    vertical-align: middle;
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &#id{
+      width: 35px;
+      text-align: center;
+    }
+    &#name{
+      width: 65px;
+      text-overflow: hidden;
+    }
+    &#numb{
+      float: right;
+      width: 50px;
+      text-align: center;
+      margin-right: 20px;
+    }
+  }
+}
+.tabbar{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: block;
+  z-index: 1000;
+  background: #fff;
+  overflow-x: hidden;
+  border-top: 1px solid rgba(200,200,200,.5);
+  font-size: 13px;
+  .tab{
+    display: inline-block;
+    width: 32%;
+    .tabimg{
+        display: block;height: 25px;width: 25px;
+        margin: auto;border: none;margin-top: 10px;
+        background-size: 100% !important;
+    }
+    .integrate{background: url(../image/common/rank.png) no-repeat;}
+    .integrate_click{background: url(../image/common/rank_click.png) no-repeat;}
+
+    .tree{background: url(../image/common/tree.png) no-repeat;}
+    .tree_click{background: url(../image/common/tree_click.png) no-repeat;}
+
+    .shoes{background: url(../image/common/shoes.png) no-repeat;}
+    .shoes_click{background: url(../image/common/shoes_click.png) no-repeat;}
+
+    .assists{background: url(../image/common/assists.png) no-repeat;}
+    .assists_click{background: url(../image/common/assists_click.png) no-repeat;}
+
+    .redCard{background: url(../image/common/redCard.png) no-repeat;}
+    .redCard_click{background: url(../image/common/redCard_click.png) no-repeat;}
+    .clickText{
+      color: #083893
+    }
+    text{
+      display: block;
+      text-align: center;
+    }
+  }
+}
+.font_red{
+      color: rgb(240,40,41)
+    }
+
+#rank-out{
+
+  background: #fff;
+  .tab{
+    width: 24%;
+    padding: 0!important;
+  }
+  #scroing{
+    padding-bottom: 60px;
+  }
+  #knockout{
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    overflow: scroll;
+    font-size: 14px;
+    .chart{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+.node{
+  text-align: center;
+  width: 300px;
+  border-radius: 5px;
+  padding: 10px 0;
+  border: 1px solid #959595;
+  img{
+    float: none !important;
+  }
+}
+.team,.midBox{
+  display: inline-block;
+  width: 30%;
+  vertical-align: middle;
+}
+#mid{
+  display: block;
+  text{
+    display: block;
+    color: #003595;
+    font-size: 15px;
+    letter-spacing: 6px;
+    &#penalty{
+      font-size: 12px;
+      letter-spacing: 0px;
+    }
+
+  }
+}
+
+
+#penalty{
+  font-size: 12px;
+}
+.team img{
+  width: 50px;
+}
+.team text{
+  display: block;
+  text-align:center;
+
+}
+#champion{
+  width: 140px;
+  padding: 0 !important;
+}
+#champ_img{
+  border: none;
+  width: 50px;
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: -15px;
+    height: auto;
+  }
+}
+#scroing{
+      padding-bottom: 60px;
+}
+.empty_warn{
+  display: block;
+  font-size: 13px;
+  color:rgb(120,120,120);
+  text-align: center;
+  margin-top: 50%;
+}
+.out-page{
+  padding-bottom: 60px;
+}
+#out-redCard{
+  #numb{
+
+      margin-right: 0 !important;
+  }
+}

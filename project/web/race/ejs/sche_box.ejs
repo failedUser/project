@@ -1,0 +1,40 @@
+<% if(list){ %>
+  <% var dRtid, dDate%>
+  <% list.forEach(function(l){%>
+    <%if(l.rtid!=dRtid){%>
+      <div  class="s_rtid rtidCell"   data-rtid= "<%= l.rtid %>">第<%= l.rtid %>轮</div>
+      <%dRtid = l.rtid%>
+    <%}%>
+    <%if(l.date!=dDate){%>
+      <div class="s_rtid s_date"><%= l.date %> <%=l.week %></div>
+      <%dDate = l.date%>
+    <div class="s_race" id="<%= l.id%>%>">
+        <%if(l.joined=='1'){%>
+          <img id="myRace" src="../image/joined.png" alt="">
+        <%}%>
+        <div id="r_mid" class="block-center">
+          <text id="mteamName" class="inline team_name"  ><%= l.zTeamName %></text>
+          <img  class="inline"  style="margin-left:11px;" src="<%= l.zTeamLogo?l.zTeamLogo:'../image/logo-default.png'%> " alt="">
+          <div  class="m_score inline ">
+            <%if(l.scorem==-1){%>
+                <text class="vs">VS</text>
+            <%}else{%>
+              <% if(l.result){%>
+                <text id="sc_big" class="block-center" style="color:<%= color%>"><%= l.result%></text>
+                <text id="sc_small" class="block-center" style="color:<%= color%>">(<%= l.scorem%>:<%=l.scores%>)</text>
+              <%}else{%>
+                <text id="sc_big" class="block-center" style="color:<%= color%>" ><%= l.scorem%>:<%=l.scores%></text>
+              <%}%>
+            <%}%>
+              <text id="r_date" class="block-center"><%= l.sttime %>-<%= l.endtime %></text>
+          </div>
+          <img  class="inline"  style="margin-right:11px;" src="<%= l.kTeamLogo?l.zTeamLogo:'../image/logo-default.png'%> " alt="">
+          <text id="subteamName"  class="inline team_name"><%= l.kTeamName %></text>
+
+        </div>
+        <div class="race_line"></div>
+    </div>
+
+    <%}%>
+  <%})%>
+<%}%>

@@ -1,0 +1,30 @@
+<% if(list) {%>
+  <% list.forEach(function(p){%>
+    <div class="p_race">
+       <img src="<%= p.logo%>" class="clearfix" alt="">
+       <div class="p_info" id="<%=p.raceId%>">
+           <text><%= p.raceName%></text>
+           <text><a id="<%= p.raceId%>" class="process_watch">查看<%= p.teams%>支队伍</a>  <span><%= p.ruleName%></span>
+             <%if(p.playerNo!=""&&p.playerNo!='其他'){%>
+            <span> <%=p.playerNo%></span>
+           <%}%>
+            </text>
+         <text id="r_date"><%= p.startDate%>-<%=p.endDate%></text>
+         <% if(p.raceStatus!='已结束'){%>
+           <text id="r_status"><%= p.raceStatus%>
+             <% if(p.curturn!='0'){%>
+             : <%= p.curturn%>
+             <%}%>
+           </text>
+        <%}else{%>
+          <text id="r_status_gray"><%= p.raceStatus%>
+            <%if(p.champion){%>
+             : 冠军 <%= p.champion %>
+             <%}%>
+           </text>
+       <%}%>
+       </div>
+    </div>
+  <%})%>
+<%}%>
+<img id="page_bottom" style="" src="../image/bottom.png" alt="">

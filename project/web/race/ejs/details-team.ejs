@@ -1,0 +1,85 @@
+<div id="page-teamDetail">
+  <% if(detail){ %>
+    <div class="dl_timeInfo">
+      <text class='name' id="left"><%= detail.zTeamName %></text>
+      <img src="<%=detail.zTeamLogo?detail.zTeamLogo:'../image/logo-default.png'%>" id="left" alt="">
+      <div id="score">
+        <%if(detail.scorem==-1){%>
+            <text class='vs'>vs</text>
+        <%}else{%>
+          <%if(detail.result){%>
+            <text id="result" style="color:<%=color%>"><%=detail.result%></text>
+            <text id="penalty" style="color:<%=color%>">(<%=detail.scorem%>:<%=detail.scores%>)</text>
+          <%}else{%>
+            <text id="result" style="color:<%=color%>"><%=detail.scorem%>:<%=detail.scores%></text>
+            <%}%>
+        <%}%>
+      </div>
+      <img src="<%=detail.kTeamLogo?detail.kTeamLogo:'../image/logo-default.png'%>" alt="">
+      <text class='name'><%=detail.kTeamName %></text>
+      <text id="time_date">
+        <%if(detail.round){%>
+        <%=detail.round%>
+        <%}else{%>
+          <%= detail.groupno %>组 第<%=detail.rtid%>轮
+        <%}%>
+        <%=detail.showStartDate%>  <%=detail.courtName%></text>
+    </div>
+
+    <%if(detail.liveurl||detail.picurl||detail.pickurl){%>
+    <div class="border_bottom"></div>
+    <div class="dl_button">
+      <% if(detail.liveurl){%>
+          <a href="<%=detail.liveurl%>" class='external'  style="border:1px solid <%=color%>;color:<%=color%>">视频直播中</a>
+      <%}else{%>
+        <% if(detail.picurl){%>
+            <a id="<%=detail.picurl%>" class="warReport" style="border:1px solid <%=color%>;color:<%=color%>">图文战报</a>
+        <%}%>
+        <% if(detail.pickurl){%>
+          <a id="<%=detail.pickurl%>"  class="warReport" style="border:1px solid <%=color%>;color:<%=color%>">比赛集锦</a>
+        <%}%>
+      <%}%>
+    </div>
+    <%}%>
+  <%}%>
+  <div class="event-container">
+  </div>
+   <div id="nav">
+     <div id="line" style="background:<%=color%>"></div>
+     <text style="color:<%=color%>" >双方阵容</text>
+       <div class='navBtn isHide isShow' name = 'playerList'></div>
+   </div>
+   <div id="playerList">
+      <%if(teama.length>0){%>
+          <div id="left"  class="player">
+            <%teama.forEach(function(a){%>
+                <div class="cell">
+                    <img src="<%=a.logo?a.logo:'../image/player_logo.png'%>" alt="">
+                    <%if(a.teamleader==1){%>
+                      <text id="name">队长</text>
+                    <%}%>
+                      <text id="name" ><%=a.name%></text>
+                      <text id="backid"><%=a.backid%>号</text>
+                </div>
+            <%})%>
+          </div>
+      <%}%>
+    <%if(teamb.length>0){%>
+      <div id="right" class="player">
+        <%teamb.forEach(function(b){%>
+              <div class="cell">
+                <text id="backid"><%=b.backid%>号</text>
+                <text id="name"><%=b.name%></text>
+                <%if(b.teamleader==1){%>
+                  <text id="name">队长</text>
+                <%}%>
+                  <img src="<%=b.logo?b.logo:'../image/player_logo.png'%>" alt="">
+              </div>
+        <%})%>
+      </div>
+      <%}%>
+    </div>
+    <%if(teama.length==0&&teamb.length==0){%>
+      <text style="display:block;height:30px;text-align:center;line-height:30px;color:#c8c8c8;font-size:13px;">双方队伍都还没有定哦...</text>
+    <%}%>
+</div>

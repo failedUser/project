@@ -1,0 +1,72 @@
+.upbox-notification {
+  position: fixed; padding: 10px; width: 100%; z-index: 20000; bottom: -300px; left: 0;
+  .noti-inner {
+    position: relative; background: #FFF; padding: 10px; box-shadow: 0 0 15px rgba(0,0,0,.3); border-radius: 5px;
+    .noti-item {
+      position: relative; @include size(100%,50px); padding-left: 60px;
+      margin-bottom: 10px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .task-img { position: absolute; left: 0; top:2px; @include size(50px); border-radius: 100%;}
+    .task-name { line-height: 20px; height: 20px; font-size: 12px;}
+    .task-remark { height: 16px; font-size: 12px; line-height: 16px; color: #969696;}
+    .jib { color: #787878; height: 16px; font-size: 12px; line-height: 16px;}
+    .user-count {
+      i { @include ib; @include bg('//cdn.upbox.com.cn/www/common/images/icons/icon-gerenjinbi@2x.png!px50',15px,16px); margin: 0 5px;}
+      color: #ff9641;
+    }
+    .team-count {
+      i { @include ib; @include bg('//cdn.upbox.com.cn/www/common/images/icons/icon-qiuduijinbi@2x.png!px50',15px,16px); margin: 0 5px;}
+      color: #2dafff;
+    }
+
+    animation: noti 3s linear;
+    -webkit-animation: noti 3s linear;
+    -moz-animation: noti 3s linear;
+  }
+}
+
+@keyframes noti {
+  0% {
+    transform:translateY(0);
+  }
+  10% {
+    transform:translateY(-300px);
+  }
+  95% {
+    transform:translateY(-300px);
+  }
+  100% {
+    transform:translateY(0);
+  }
+}
+@-webkit-keyframes noti {
+  0% {
+    transform:translateY(0);
+  }
+  20% {
+    transform:translateY(-300px);
+  }
+  80% {
+    transform:translateY(-300px);
+  }
+  100% {
+    transform:translateY(0);
+  }
+}
+@-moz-keyframes noti {
+  0% {
+    transform:translateY(0);
+  }
+  20% {
+    transform:translateY(-960px);
+  }
+  80% {
+    transform:translateY(-960px);
+  }
+  100% {
+    transform:translateY(0);
+  }
+}
